@@ -88,7 +88,7 @@
         width: 720px;
         height: 450px;
         background-color: rgb(222, 222, 222);
-        background-image: url('./images/中間.png');
+        /* background-image: url('./images/中間.png'); */
         margin: 1.5rem 2rem;
         position: relative;
         border-radius: 3%;
@@ -158,14 +158,8 @@
       <div id="game">
         <div id="left"></div>
         <div id="center">
-          <div class="big">
-            <img class="content1" src="./images/鬼.png">
-            <img class="content2" src="./images/剪頭髮.png">
-            <img class="content3" src="./images/電電食.png">
-            <img class="content4" src="./images/輸人.png">
-            <img class="content5" src="./images/24個.png">
-            <img class="content6" src="./images/老人.png">
-          </div>
+          <img id="hero" src="./images/中間.png" alt="">
+
         </div>
       </div>
     </div>
@@ -202,18 +196,7 @@
         $('.card').eq(target).insertAfter($('.card').eq(i))
       }
 
-
-      // 內容圖
-      $('#center .content1').hide()
-      $('#center .content2').hide()
-      $('#center .content3').hide()
-      $('#center .content4').hide()
-      $('#center .content5').hide()
-      $('#center .content6').hide()
-
-
       $('#game').on('click', '.card', function () {
-
 
         // 最多一次翻兩張，且這張牌還沒翻開
         // 如果現在還沒翻開的小於兩張
@@ -226,59 +209,42 @@
         // 如果翻兩張了
         if ($('.card:not(.card-close').length === 2) {
           // 翻牌
-          if ($('.card:not(.card-close)').eq(0).attr('data-num') === '1' && $('.card:not(.card-close)').eq(1).attr('data-num') === '2') {
+          if (($('.card:not(.card-close)').eq(0).attr('data-num') === '1' && $('.card:not(.card-close)').eq(1).attr('data-num') === '2') || ($('.card:not(.card-close)').eq(0).attr('data-num') === '2' && $('.card:not(.card-close)').eq(1).attr('data-num') === '1')) {
             // 用card-ok標記已完成
             $('.card:not(.card-close)').addClass('card-ok')
             $('.card:not(.card-close)').fadeTo(1000, 0)
-            $('#center .content1').show()
-            setTimeout(() => {
-              $('#center .content1').hide()
-            }, 3000)
+            $('#hero').attr('src', `./images/鬼.png`)
           }
-          if ($('.card:not(.card-close)').eq(0).attr('data-num') === '3' && $('.card:not(.card-close)').eq(1).attr('data-num') === '4') {
+
+          if (($('.card:not(.card-close)').eq(0).attr('data-num') === '3' && $('.card:not(.card-close)').eq(1).attr('data-num') === '4') || ($('.card:not(.card-close)').eq(0).attr('data-num') === '4' && $('.card:not(.card-close)').eq(1).attr('data-num') === '3')) {
             // 用card-ok標記已完成
             $('.card:not(.card-close)').addClass('card-ok')
             $('.card:not(.card-close)').fadeTo(1000, 0)
-            $('#center .content2').show()
-            setTimeout(() => {
-              $('#center .content2').hide()
-            }, 3000)
+            $('#hero').attr('src', `./images/剪頭髮.png`)
           }
-          if ($('.card:not(.card-close)').eq(0).attr('data-num') === '5' && $('.card:not(.card-close)').eq(1).attr('data-num') === '6') {
+          if (($('.card:not(.card-close)').eq(0).attr('data-num') === '5' && $('.card:not(.card-close)').eq(1).attr('data-num') === '6') || ($('.card:not(.card-close)').eq(0).attr('data-num') === '6' && $('.card:not(.card-close)').eq(1).attr('data-num') === '5')) {
             // 用card-ok標記已完成
             $('.card:not(.card-close)').addClass('card-ok')
             $('.card:not(.card-close)').fadeTo(1000, 0)
-            $('#center .content3').show()
-            setTimeout(() => {
-              $('#center .content3').hide()
-            }, 3000)
+            $('#hero').attr('src', `./images/電電食.png`)
           }
-          if ($('.card:not(.card-close)').eq(0).attr('data-num') === '7' && $('.card:not(.card-close)').eq(1).attr('data-num') === '8') {
+          if (($('.card:not(.card-close)').eq(0).attr('data-num') === '7' && $('.card:not(.card-close)').eq(1).attr('data-num') === '8') || ($('.card:not(.card-close)').eq(0).attr('data-num') === '8' && $('.card:not(.card-close)').eq(1).attr('data-num') === '7')) {
             // 用card-ok標記已完成
             $('.card:not(.card-close)').addClass('card-ok')
             $('.card:not(.card-close)').fadeTo(1000, 0)
-            $('#center .content4').show()
-            setTimeout(() => {
-              $('#center .content4').hide()
-            }, 3000)
+            $('#hero').attr('src', `./images/輸人.png`)
           }
-          if ($('.card:not(.card-close)').eq(0).attr('data-num') === '9' && $('.card:not(.card-close)').eq(1).attr('data-num') === '10') {
+          if (($('.card:not(.card-close)').eq(0).attr('data-num') === '9' && $('.card:not(.card-close)').eq(1).attr('data-num') === '10') || ($('.card:not(.card-close)').eq(0).attr('data-num') === '10' && $('.card:not(.card-close)').eq(1).attr('data-num') === '9')) {
             // 用card-ok標記已完成
             $('.card:not(.card-close)').addClass('card-ok')
             $('.card:not(.card-close)').fadeTo(1000, 0)
-            $('#center .content5').show()
-            setTimeout(() => {
-              $('#center .content5').hide()
-            }, 3000)
+            $('#hero').attr('src', `./images/24個.png`)
           }
-          if ($('.card:not(.card-close)').eq(0).attr('data-num') === '11' && $('.card:not(.card-close)').eq(1).attr('data-num') === '12') {
+          if (($('.card:not(.card-close)').eq(0).attr('data-num') === '11' && $('.card:not(.card-close)').eq(1).attr('data-num') === '12') || ($('.card:not(.card-close)').eq(0).attr('data-num') === '12' && $('.card:not(.card-close)').eq(1).attr('data-num') === '11')) {
             // 用card-ok標記已完成
             $('.card:not(.card-close)').addClass('card-ok')
             $('.card:not(.card-close)').fadeTo(1000, 0)
-            $('#center .content6').show()
-            setTimeout(() => {
-              $('#center .content6').hide()
-            }, 3000)
+            $('#hero').attr('src', `./images/老人.png`)
           }
 
 
@@ -289,7 +255,7 @@
               Swal.fire({
                 icon: 'success',
                 title: '恭喜',
-                text: '恭喜過關'
+                text: '恭喜過關，你是台語小高手~'
               })
 
             }
